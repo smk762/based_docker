@@ -1,8 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="smk@komodoplatform.com"
 
-
-
 # Install dependencies
 ARG DEBIAN_FRONTEND=noninteractive 
 ARG BUILD_PACKAGES="libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev curl \
@@ -27,6 +25,5 @@ RUN rm -rf /build/komodo && \
     apt update && apt install -y nano htop libgomp1
 
 COPY entrypoint.sh /entrypoint.sh
-COPY launch_files/ /
 
 ENTRYPOINT ["/entrypoint.sh"]
