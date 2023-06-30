@@ -9,14 +9,14 @@ ARG BUILD_PACKAGES="libevent-dev libboost-system-dev libboost-filesystem-dev lib
 
 # Copy entrypoint and build script
 COPY entrypoint.sh /entrypoint.sh
-COPY build_kmd.sh /build.sh
+COPY build.sh /build.sh
 
 # Install dependencies
 RUN apt update && \
     apt install $BUILD_PACKAGES -y
 
 # Build 
-RUN /build.sh master
+RUN /build.sh
 
 # Move binaries
 RUN cp /temp/komodo/src/komodo-cli /usr/local/bin/komodo-cli && \

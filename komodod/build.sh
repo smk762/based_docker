@@ -2,11 +2,9 @@
 set -euxo pipefail
 echo $PWD
 echo "========================================"
-mkdir -p /temp
-cd /temp
+mkdir -p /build_temp
+cd /build_temp
 git clone https://github.com/KomodoPlatform/komodo
-cd komodo && git checkout ${1}
+cd komodo && git checkout 156dba6
 
-./zcutil/fetch-params.sh
-
-./zcutil/build.sh -j$(4)
+./zcutil/build.sh -j$(nproc -1)

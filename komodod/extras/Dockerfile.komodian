@@ -10,3 +10,4 @@ WORKDIR /home/komodian
 # Setup user and working directory
 RUN chown -R komodian:notarygroup /home/komodian
 USER komodian
+
