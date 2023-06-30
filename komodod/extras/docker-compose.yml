@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  kmd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kmd
+    shm_size: '4gb'
+    restart: always
+    stop_grace_period: 20s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
