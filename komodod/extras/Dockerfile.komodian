@@ -11,3 +11,9 @@ WORKDIR /home/komodian
 RUN chown -R komodian:notarygroup /home/komodian
 USER komodian
 
+
+COPY healthcheck.sh /usr/local/bin
+
+HEALTHCHECK --start-period=15m --interval=15m --timeout=60s CMD CMD bash /usr/local/healthcheck.sh ${SERVICE_CLI} || exit 1
+STOPSIGNAL SIGTERM
+
