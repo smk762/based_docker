@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as KMDBASE
+FROM ubuntu:20.04 as komodod-base
 LABEL maintainer="smk@komodoplatform.com"
 
 # Setup up user and working directory
