@@ -1,0 +1,12 @@
+FROM smk762/komodod:base
+
+ARG COMMIT_HASH
+ARG GROUP_ID
+ARG USER_ID
+RUN addgroup --gid ${GROUP_ID} notarygroup
+RUN adduser --disabled-password --gecos '' --uid ${USER_ID} --gid ${GROUP_ID} komodian
+WORKDIR /home/komodian
+
+# Setup user and working directory
+RUN chown -R komodian:notarygroup /home/komodian
+USER komodian
