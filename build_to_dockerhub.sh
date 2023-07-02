@@ -18,12 +18,11 @@ git submodule sync
 git submodule update --init --recursive --remote
 
 # Prepare repo
-cd ${repo}
+cd "${repo}"
 git checkout ${commit}
 cd ..
 
 # Build
-cd ${repo}
 if [ "${repo}" == "komodo" ]; then
   ./zcutil/fetch-params.sh
   ./zcutil/build.sh -j6
@@ -41,4 +40,4 @@ fi
 short_commit=$(git log -1 --pretty="format:%h")
 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
 docker build -f Dockerfile.release -t ${DOCKER_USER}/${repo}:${short_commit} .
-docker push ${DOCKER_USER}/${repo}
+docker push ${DOCKER_USER}/${repo}:${short_commit}
