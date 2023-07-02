@@ -20,7 +20,6 @@ git submodule update --init --recursive --remote
 # Prepare repo
 cd "${repo}"
 git checkout ${commit}
-cd ..
 
 # Build
 if [ "${repo}" == "komodo" ]; then
