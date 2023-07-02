@@ -1,0 +1,3 @@
+[submodule "komodo"]
+	path = komodo
+	url = https://github.com/smk762/komodo
