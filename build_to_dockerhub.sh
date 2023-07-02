@@ -13,13 +13,13 @@ else
 fi
 
 # Update submodules
-git submodule init
 git submodule sync
 git submodule update --init --recursive --remote
 
 # Prepare repo
-cd "${repo}"
-git checkout ${commit}
+echo "Preparing ${repo} on ${commit}..."
+cd $repo
+git checkout $commit
 
 # Build
 if [ "${repo}" == "komodo" ]; then
