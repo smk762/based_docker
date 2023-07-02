@@ -26,7 +26,7 @@ cd ..
 cd ${repo}
 if [ "${repo}" == "komodo" ]; then
   ./zcutil/fetch-params.sh
-  ./zcutil/build.sh -j$(nproc -1)
+  ./zcutil/build.sh -j6
 fi
 
 # Get dockerhub credentials. You can set them in ~/.bashrc or here.
