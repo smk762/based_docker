@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euxo pipefail
-
 # Get repo and commit
 if test -z "$1"; then
   read -p "Which repo? : " repo
