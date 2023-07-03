@@ -20,6 +20,7 @@ git submodule update --init --recursive --remote
 echo "Preparing ${repo} on ${commit}..."
 cd $repo
 git checkout $commit
+short_commit=$(git log -1 --pretty="format:%h")
 
 # Build
 if [ "${repo}" == "komodo" ]; then
@@ -36,7 +37,6 @@ if test -z "$DOCKER_PASS"; then
 fi
 
 # Push to dockerhub
-short_commit=$(git log -1 --pretty="format:%h")
 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-docker build -f Dockerfile.release -t ${DOCKER_USER}/${repo}:${short_commit} .
+docker build -f Dockerfile.komodod -t ${DOCKER_USER}/${repo}:${short_commit} .
 docker push ${DOCKER_USER}/${repo}:${short_commit}

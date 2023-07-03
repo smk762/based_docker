@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+RUN \ 
+    apt-get update &&\
+    apt-get install -y libgomp1
+WORKDIR /komodo
+COPY komodo/src/komodod komodo/src/komodo-cli ./
+COPY komodo/src/komodod komodo/src/komodo-cli /usr/local/bin/
+CMD ./komodod
+
